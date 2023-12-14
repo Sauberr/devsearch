@@ -1,0 +1,16 @@
+﻿asgiref==3.7.2
+cffi==1.16.0
+cryptography==41.0.7
+Django==4.2.7
+django-cors-headers==4.3.1
+django-environ==0.11.2
+djangorestframework==3.14.0
+djangorestframework-simplejwt==5.3.1
+Pillow==10.1.0
+psycopg2==2.9.9
+pycparser==2.21
+PyJWT==2.8.0
+pytz==2023.3.post1
+sqlparse==0.4.4
+tzdata==2023.3
+whitenoise==6.6.0
