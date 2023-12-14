@@ -1,0 +1,54 @@
+
+
+
+    {% if queryset.has_other_pages %}
+    <div class="pagination">
+      <ul class="container" >
+        {% if queryset.has_previous  %}
+
+          <li><a href="?page={{queryset.previous_page_number}}" class="btn page-link" data-page="{{queryset.previous_page_number}}">&#10094;  Prev</a></li>
+
+        {% endif %}
+
+        {% for page in custom_range %}
+
+
+        {% if page == queryset.number %}
+          <li><a href="?page={{page}}" class="btn page-link btn--sub" data-page="{{page}}">{{ page }}</a></li>
+
+        {% else %}
+          <li><a href="?page={{page}}" class="btn page-link" data-page="{{page}}">{{ page }}</a></li>
+
+        {% endif %}
+        {% endfor %}
+
+        {% if queryset.has_next  %}
+
+          <li><a href="?page={{queryset.next_page_number}}" class="btn page-link" data-page="{{queryset.next_page_number}}">Next &#10095;</a></li>
+
+        {% endif %}
+      </ul>
+    {% endif %}
+    </div>
+
+<script type="text/javascript">
+    // GET SEARCH FORM AND PAGE LINKS
+    let searchform = document.getElementById('searchform')
+    let pagelinks = document.getElementsByClassName('page-link')
+    // ENSURE SEARCH FORM EXIST
+    if(searchform){
+        for(let i=0; pagelinks.length > i; i++ ){
+            pagelinks[i].addEventListener('click', function (e) {
+                e.preventDefault()
+
+                // GET THE DATA ATTRIBUTE
+                let page = this.dataset.page
+                // ADD HIDDEN SEARCH INPUT TO FORM
+                searchform.innerHTML += `<input value=${page} name="page" hidden/>`
+                // SUBMIT FORM
+                searchform.submit()
+            })
+        }
+    }
+
+</script>
