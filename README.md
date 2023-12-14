@@ -22,7 +22,6 @@ All actions should be executed from the source directory of the project and only
    pip install -r requirements.txt
    ```
 ## Run application
-The uvicorn web server is used to run FastAPI. The command to run looks like this:
 ```
 py manage.py runserver
 ```
